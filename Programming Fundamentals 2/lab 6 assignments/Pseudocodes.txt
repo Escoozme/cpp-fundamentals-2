@@ -1,0 +1,88 @@
+8.5 addTwoMatrices.cpp
+
+     start
+	const int N = 3
+
+	Function addMatrix(const double a[][N], const double b[][N], double c[][N])
+	   for int i = 0; i < N; ++i
+	      for int j = 0; j < N; ++j
+	         c[i][j] = a[i][j] + b[i][j]
+	      endfor
+	   endfor
+	EndFunction
+
+	Function int main
+	   double matrixA[3][N]
+	   double matrixB[3][N]
+	   double matrixC[3][N]
+
+	   input matrixA
+	   input matrixB
+
+	   addMatrix(matrixA, matrixB, matrixC)
+
+	   output matrixC
+
+	   return zero
+	EndFunction
+     stop
+
+
+8.11 nineHeadsTails.cpp
+
+     start
+	int coinsMatrix[3][3]
+	int number
+
+	input number
+
+	for int r = 2; r >=0; --r
+	   for int c = 2; c >=0; --c
+	      coinsMatrix[r][c] = number % 2
+	      number /= 2
+	   endfor
+	endfor
+
+	for int r = 0; r < 3; ++r
+	   for int c = 0; c < 3; ++c
+	      if coinsMatrix[r][c] == 0 is true then
+	         output " H"
+	      else
+	         output " T"
+	      endif
+	   endfor
+	endfor
+     stop
+
+
+8.15 guessCapitals.cpp
+
+     start
+	ifstream fin
+	string statesCapitals[50][2]
+	string answer
+	int correctCount = 0
+
+	fin.open("States_and_Capitals.dat")
+
+	for int r = 0; r < 50; ++r
+	   for int c = 0; c < 2; ++c
+	      getline(fin, statesCapitals[r][c])
+	   endfor
+	endfor
+
+	fin.close()
+
+	for int r = 0; r < 50; ++r
+	   output "What is the capital of " statesCapitals[r][0] "? "
+	   getline(cin, answer)
+
+	   if answer == statesCapitals[r][1] is true then
+	      ++correctCount
+	   else
+	      output "Correct answer is " statesCapitals[r][1]
+	   endif
+	endfor
+
+	output correctCount
+     stop

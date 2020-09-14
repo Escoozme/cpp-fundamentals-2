@@ -1,0 +1,143 @@
+7.9 smallestElement.cpp
+
+     start
+	Function double min(const double array[], int size)
+	   double minValue = array[0]
+
+	   for int count = 1; count < size; ++count
+	      if array[count] < minValue is true then
+	         minValue = array[count]
+	      endif
+	   endfor
+
+	   return minValue
+	EndFunction
+
+	Function int main
+	   const int SIZE = 10
+	   double numbers[SIZE]
+
+	   for int counter = 0; counter < SIZE; ++counter
+	      input numbers[counter]
+	   endfor
+
+	   output min(numbers, SIZE)
+	
+	   return zero
+	EndFunction
+     stop
+
+
+7.23 identicalArrays.cpp
+
+     start
+	Function bool isEqual(const int list1[], const int list2[], int size)
+	   for int indexOne = 0; indexOne < size; ++indexOne
+	      int accumulatorOne = 0
+	      int accumulatorTwo = 0
+
+	      for int indexTwo = 0; indexTwo < size; ++indexTwo
+	         if list1[indexTwo] == list1[indexOne] is true then
+	            ++accumulatorOne
+	         endif
+	
+	         if list2[indexTwo] == list1[indexOne] is true then
+	            ++accumulatorTwo
+	         endif
+	      endfor
+
+	      if accumulatorOne != accumulatorTwo is true then
+	         return false
+	      endif
+	   endfor
+	EndFunction
+
+	Function int main
+	   int sizeOfLists = 0
+
+	   output "Enter size of lists using number between 1 and 20"
+	   intput sizeOfLists
+
+	   if sizeOfLists < 1 OR sizeOfLists > 20 is true then
+	      return 0;
+	   endif
+
+	   int listOne[sizeOfLists]
+	   for int counter = 0; counter < sizeOfLists; ++counter
+	      input listOne[counter]
+	   endfor
+
+	   int listTwo[sizeOfLists]
+	   for int counter = 0; counter < sizeOfLists; ++counter
+	      input listTwo[counter]
+	   endfor
+
+	   if isEqual(listOne, listTwo, sizeOfLists) is true then
+	      output "The two lists are identical."
+	   else
+	      output "The two lists are not identical."
+	   endif
+
+	   return zero
+	EndFunction
+     stop
+
+
+7.25 pickFourCards.cpp
+
+     start
+	const int NUMBER_OF_CARDS = 52
+	int sumTwentyFour = 0
+
+	for int card1 = 0; card1 < NUMBER_OF_CARDS; ++card1
+	   for int card2 = card1 + 1; card2 < NUMBER_OF_CARDS; ++card2
+	      for int card3 = card2 + 1; card3 < NUMBER_OF_CARDS; ++card3
+	         for int card4 = card3 + 1; card4 < NUMBER_OF_CARDS; ++card4
+	            int sum = (card1 % 13) + (card2 % 13) + (card3 % 13) + (card4 % 13) + 4
+	            if sum == 24 is true then
+	               ++sumTwentyFour
+	            endif
+	         endfor
+	      endfor
+	   endfor
+	endfor
+
+	output sumTwentyFour
+     stop
+
+
+7.37 occurrenceOfLetters.cpp
+
+     start
+	Function void count(const char s[], int counts[])
+	   for int i = 0; s[i] != '\0'; ++i
+	      if isalpha(s[i]) is true then
+	         ++counts[(int)s[i] - 'a']
+	      endif
+	   endfor
+	EndFunction
+
+	Function int main
+	   string stringy
+	   int counts[26] = {0}
+	   const char alphabet[] = "abcdefghijklmnopqrstuvwxyz"
+
+	   input stringy
+
+	   for int counter = 0; counter < stringy.length(); ++counter
+	      stringy[counter] = (char)(tolower(stringy[counter]))
+	   endfor
+
+	   count(stringy.c_str(), counts)
+
+	   for int i = 0; i < 26; ++i
+	      if counts[i] == 1 is true then
+	         output alphabet[i] ": " counts[i] " time"
+	      else if
+	         output alphabet[i] ": " counts[i] " times"
+	      endif
+	   endfor
+
+	   return zero
+	EndFunction
+     stop

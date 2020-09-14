@@ -1,0 +1,32 @@
+10.5 checkPalindrome.cpp
+
+     start
+	Function isPalindrome(const string& s)
+	   for int f equals 0, b equals s.length() - 1; f less than b; ++f, --b
+	      if s[f] is not equal to s[b] is true then
+	         return false
+	      endif
+	   endfor
+	EndFunction
+
+	Function int main
+	   string palindrome
+
+	   input palindrome
+
+	   for int i equals 0; i less than palindrome.length(); ++i
+	      if palindrome[i] is alpha OR is digit is true then
+	         palindrome[i] = tolower(palindrome[i])
+	      else
+	         palindrome.erase(i, 1)
+	         --i
+	      endif
+	   endfor
+
+	   if isPalindrome(palindrome) is true then
+	      output "That is a palindrome."
+	   else
+	      output "That is not a palindrome."
+	   endif
+	EndFunction
+     stop

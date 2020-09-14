@@ -1,0 +1,35 @@
+sortThreeNumbers.cpp
+
+     start
+	Function void sort(double &num1, double &num2, double &num3)
+	   double temp
+	   if num2 < num1 is true then
+	      temp = num1
+	      num1 = num2
+	      num2 = temp
+	   endif
+	   if num3 < num1 is true then
+	      temp = num1
+	      num1 = num3
+	      num3 = temp
+	   endif
+	   if num3 < num2 is true then
+	      temp = num2
+	      num2 = num3
+	      num3 = temp
+	   endif
+	EndFunction
+	   
+	Function int main
+	   Declarations
+	      double number1, number2, number3
+
+	   input number1, number2, number3
+
+	   Call: sort(number1, number2, number3)
+
+	   output number1, number2, number3
+
+	   Return zero
+	EndFunction
+     stop
